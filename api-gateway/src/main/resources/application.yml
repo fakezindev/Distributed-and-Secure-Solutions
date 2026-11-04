@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        # Rota de Checkout: Encaminha requisições da borda para o microsserviço de negócio
+        - id: checkout-route
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/v1/checkout/**
+        # Rota de Catálogo (para consultas públicas)
+        - id: catalog-route
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/v1/catalog/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
