@@ -8,7 +8,7 @@
     <!-- Aponta para o pom.xml raiz como pai -->
     <parent>
         <groupId>br.edu.eniac.ecommerce</groupId>
-        <artifactId>ecommerce-plataforma</artifactId>
+        <artifactId>my-ecommerce</artifactId>
         <version>1.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>

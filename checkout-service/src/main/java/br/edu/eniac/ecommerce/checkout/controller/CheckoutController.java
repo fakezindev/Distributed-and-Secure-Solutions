@@ -21,8 +21,8 @@ public class CheckoutController {
         this.checkoutService = checkoutService;
     }
 
-    @PostMapping
-    public ResponseEntity> createCheckout(@Valid @RequestBody OrderRequestDTO request) {
+    @PostMapping(produces = "application/json;charset=UTF-8")
+    public ResponseEntity createCheckout(@Valid @RequestBody OrderRequestDTO request) {
         String result = checkoutService.executeCheckout(request);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(Map.of(
                 "orderId", request.orderId(),

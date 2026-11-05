@@ -13,11 +13,11 @@
     </parent>
 
     <groupId>br.edu.eniac.ecommerce</groupId>
-    <artifactId>ecommerce-plataforma</artifactId>
+    <artifactId>my-ecommerce</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>ecommerce-plataforma</name>
+    <name>my-ecommerce</name>
     <description>Projeto Integrador - Arquitetura Distribuida e Segura</description>
 
     <!-- Submódulos que serão compilados juntos -->
@@ -28,6 +28,8 @@
 
     <properties>
         <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-cloud.version>2023.0.3</spring-cloud.version>
         <resilience4j.version>2.2.0</resilience4j.version>
     </properties>
@@ -35,6 +37,15 @@
     <!-- Gerenciamento centralizado de versões (sem baixar jars aqui) -->
     <dependencyManagement>
         <dependencies>
+            <!-- Import do Spring Boot BOM para gerenciar versões dos starters nos submódulos -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.3.4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- Spring Cloud (Gateway, Config, etc.) -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
